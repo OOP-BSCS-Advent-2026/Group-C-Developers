@@ -12,7 +12,7 @@ public class NeatStationary {
         }
 
         // Price list
-        System.out.println("==== NEAT STATIONERY PRICE LIST ====");
+        System.out.println("NEAT STATIONERY PRICE LIST");
         for (int i = 0; i < names.length; i++) {
             System.out.println(names[i] + " - UGX "
                     + String.format("%.2f", prices[i]));
@@ -34,7 +34,7 @@ public class NeatStationary {
             grandTotal += subtotals[i];
         }
 
-        System.out.println("==== GRAND TOTAL ====");
+        System.out.println("GRAND TOTAL ");
         System.out.println("UGX " + String.format("%.2f", grandTotal));
     }
 
