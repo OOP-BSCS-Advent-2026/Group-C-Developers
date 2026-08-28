@@ -9,5 +9,8 @@ public class NeatStationary{
         String[] discounts = new String[4];
         for(int d=0; d<discounts.length; d++){
             discounts[d] = "No discount";
+
+
+            
         }
     }
