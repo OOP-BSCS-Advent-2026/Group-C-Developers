@@ -17,4 +17,19 @@ public class NeatStationary {
                              + String.format("%.2f", prices[i]));
 
             }
+        }static double calculateSubtotal(String name, double price, int qty) {
+
+        double subtotal = price * qty;
+
+        if (name.equals("Pen") && qty >= 10) {
+            subtotal -= subtotal * 0.10;
         }
+        if (name.equals("Ruler") && qty >= 5) {
+            subtotal -= 200;
+        }
+        if (name.equals("Maths Set") && qty >= 3) {
+            subtotal -= subtotal * 0.05;
+        }
+
+        return subtotal;
+    }
