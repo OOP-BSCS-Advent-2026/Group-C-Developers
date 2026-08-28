@@ -10,4 +10,11 @@ public class NeatStationary{
         for(int d=0; d<discounts.length; d++){
             discounts[d] = "No discount";
         }
-    }
+         // Price list
+        System.out.println("==== NEAT STATIONERY PRICE LIST ====");
+        for (int i = 0; i < names.length; i++)
+            System.out.println(names[i] + " - UGX " 
+                             + String.format("%.2f", prices[i]));
+
+            }
+        }
