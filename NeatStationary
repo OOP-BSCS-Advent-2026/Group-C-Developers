@@ -1,0 +1,14 @@
+public class NeatStationary{
+    public static void main(String[] args) {
+        String[] names = {"Pen", "Textbook", "Ruler", "Maths Set"};
+        double[] prices = {500.00, 8000.00, 300.00, 15000.00};
+        int[] quantities = {9, 2, 4, 3};
+        double[] subtotals = new double[4];
+        
+        
+        String[] discounts = new String[4];
+        for(int d=0; d<discounts.length; d++){
+            discounts[d] = "No discount";
+
+        }
+    }
