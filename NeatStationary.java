@@ -13,4 +13,11 @@ public class NeatStationary{
 
             
         }
-    }
+         // Price list
+        System.out.println("==== NEAT STATIONERY PRICE LIST ====");
+        for (int i = 0; i < names.length; i++)
+            System.out.println(names[i] + " - UGX " 
+                             + String.format("%.2f", prices[i]));
+
+            }
+        }
