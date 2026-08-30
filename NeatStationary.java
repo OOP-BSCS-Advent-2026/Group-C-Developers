@@ -1,9 +1,9 @@
 public class NeatStationary {
 
     public static void main(String[] args) {
-        String[] itemNames = {"Pen", "Textbook", "Ruler", "Maths Set"};
-        double[] itemPrices = {500.00, 8000.00, 300.00, 15000.00};
-        int[] itemQuantities = {9, 2, 4, 3};
+        String[] names = {"Pen", "Textbook", "Ruler", "Maths Set"};
+        double[] prices = {500.00, 8000.00, 300.00, 15000.00};
+        int[] quantities = {9, 2, 4, 3};
         double[] subtotals = new double[4];
 
         String[] discounts = new String[4];
@@ -12,20 +12,20 @@ public class NeatStationary {
         }
          // Price list
         System.out.println("==== NEAT STATIONERY PRICE LIST ====");
-        for (int i = 0; i < itemNames.length; i++)
-            System.out.println(itemNames[i] + " - UGX " 
-                             + String.format("%.2f", itemPrices[i]));
+        for (int i = 0; i < names.length; i++)
+            System.out.println(names[i] + " - UGX " 
+                             + String.format("%.2f", prices[i]));
 
         double grandTotal = 0.0;
-        for (int i = 0; i < itemNames.length; i++) {
-            subtotals[i] = itemPrices[i] * itemQuantities[i];
-            if (itemNames[i].equals("Pen") && itemQuantities[i] >= 10) {
+        for (int i = 0; i < names.length; i++) {
+            subtotals[i] = prices[i] * quantities[i];
+            if (names[i].equals("Pen") && quantities[i] >= 10) {
                 subtotals[i] *= 0.90;
                 discounts[i] = "10% off total";
-            } else if (itemNames[i].equals("Ruler") && itemQuantities[i] >= 5) {
+            } else if (names[i].equals("Ruler") && quantities[i] >= 5) {
                 subtotals[i] -= 200.00;
                 discounts[i] = "UGX 200 off total";
-            } else if (itemNames[i].equals("Maths Set") && itemQuantities[i] >= 3) {
+            } else if (names[i].equals("Maths Set") && quantities[i] >= 3) {
                 subtotals[i] *= 0.95;
                 discounts[i] = "5% off total";
             }
@@ -34,8 +34,8 @@ public class NeatStationary {
 
         System.out.println("==== RECEIPT ====");
         System.out.println("Item - Quantity - Discount - Subtotal");
-        for (int i = 0; i < itemNames.length; i++) {
-            System.out.println(itemNames[i] + " x " + itemQuantities[i]
+        for (int i = 0; i < names.length; i++) {
+            System.out.println(names[i] + " x " + quantities[i]
                              + " - " + discounts[i]
                              + " - UGX " + String.format("%.2f", subtotals[i]));
         }
