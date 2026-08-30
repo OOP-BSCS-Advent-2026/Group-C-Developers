@@ -1,56 +1,56 @@
 public class NeatStationery {
 
     // METHOD 1 - Calculate subtotal with discount
-    static double calculateSubtotal(String name, double price, int qty) {
-        double subtotal = price * qty;
+    static double calculateSubtotal(String itemName, double itemPrice, int quantity) {
+        double subtotal = itemPrice * quantity;
 
-        if (name.equals("Pen") && qty >= 10)
+        if (itemName.equals("Pen") && quantity >= 10)
             subtotal -= subtotal * 0.10;
-        if (name.equals("Ruler") && qty >= 5)
+        if (itemName.equals("Ruler") && quantity >= 5)
             subtotal -= 200;
-        if (name.equals("Maths Set") && qty >= 3)
+        if (itemName.equals("Maths Set") && quantity >= 3)
             subtotal -= subtotal * 0.05;
 
         return subtotal;
     }
 
     // METHOD 2 - Print receipt
-    static void printReceipt(String[] names, int[] quantities,
-                             double[] subtotals, double[] originals) {
+    static void printReceipt(String[] itemNames, int[] itemQuantities,
+                             double[] subtotals, double[] originalTotals) {
         System.out.println("\n==== RECEIPT ====");
-        for (int i = 0; i < names.length; i++) {
-            String discount = subtotals[i] < originals[i] 
+        for (int i = 0; i < itemNames.length; i++) {
+            String discountMessage = subtotals[i] < originalTotals[i] 
                             ? "discount applied" : "no discount";
-            System.out.println(names[i] + " x" + quantities[i]
+            System.out.println(itemNames[i] + " x" + itemQuantities[i]
                 + " = UGX " + String.format("%.2f", subtotals[i])
-                + " (" + discount + ")");
+                + " (" + discountMessage + ")");
         }
     }
 
     public static void main(String[] args) {
 
-        String[] names     = {"Pen", "Textbook", "Ruler", "Maths Set"};
-        double[] prices    = {500.00, 8000.00, 300.00, 15000.00};
-        int[]    quantities = {9, 2, 4, 3};
+        String[] itemNames     = {"Pen", "Textbook", "Ruler", "Maths Set"};
+        double[] itemPrices    = {500.00, 8000.00, 300.00, 15000.00};
+        int[]    itemQuantities = {9, 2, 4, 3};
         double[] subtotals  = new double[4];
-        double[] originals  = new double[4];
+        double[] originalTotals  = new double[4];
 
         // Price list
         System.out.println("==== NEAT STATIONERY PRICE LIST ====");
-        for (int i = 0; i < names.length; i++)
-            System.out.println(names[i] + " - UGX " 
-                             + String.format("%.2f", prices[i]));
+        for (int i = 0; i < itemNames.length; i++)
+            System.out.println(itemNames[i] + " - UGX " 
+                             + String.format("%.2f", itemPrices[i]));
 
         // Calc
         double total = 0;
-        for (int i = 0; i < names.length; i++) {
-            originals[i] = prices[i] * quantities[i];
-            subtotals[i] = calculateSubtotal(names[i], prices[i], quantities[i]);
+        for (int i = 0; i < itemNames.length; i++) {
+            originalTotals[i] = itemPrices[i] * itemQuantities[i];
+            subtotals[i] = calculateSubtotal(itemNames[i], itemPrices[i], itemQuantities[i]);
             total += subtotals[i];
         }
 
         
-        printReceipt(names, quantities, subtotals, originals);
+        printReceipt(itemNames, itemQuantities, subtotals, originalTotals);
         System.out.println("----------------------------");
         System.out.println("TOTAL = UGX " + String.format("%.2f", total));
     }
