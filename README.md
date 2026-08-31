@@ -1,2 +1,2 @@
-# Group-C-Developers
+# GroupC_BusinessSimulator
 A collaborative Java Development project for building and practicing Java Applications
