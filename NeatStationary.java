@@ -18,7 +18,9 @@ public class NeatStationary {
 
         double total = 0.0;
         for (int i = 0; i < itemNames.length; i++) {
-            subtotals[i] = itemPrices[i] * itemQuantities[i];
+            //caluculate subtotal using this method
+            subtotals[i] = calculateSubtotal(itemPrices[i],itemQuantities[i]);
+            
             if (itemNames[i].equals("Pen") && itemQuantities[i] >= 10) {
                 subtotals[i] *= 0.90;
                 discounts[i] = "10% off total";
@@ -31,15 +33,25 @@ public class NeatStationary {
             }
             total += subtotals[i];
         }
+        printReceipt(itemNames, itemQuantities, discounts, subtotals);
+         System.out.println("==== GRAND TOTAL ====");
+        System.out.println("UGX " + String.format("%.2f", total));
+    }
+    // Method 1
+   public static double calculateSubtotal(double itemPrices,int itemQuantities){
+            
+    return itemPrices *itemQuantities;
+   }
 
-        System.out.println("==== RECEIPT ====");
+     //Method 2
+        public static void printReceipt(String[] itemNames,int []itemQuantities,String[] discounts,double[] subtotals) {
+    System.out.println("==== RECEIPT ====");
         System.out.println("Item - Quantity - Discount - Subtotal");
         for (int i = 0; i < itemNames.length; i++) {
             System.out.println(itemNames[i] + " x " + itemQuantities[i]
                     + " - " + discounts[i]
                     + " - UGX " + String.format("%.2f", subtotals[i]));
         }
-        System.out.println("==== GRAND TOTAL ====");
-        System.out.println("UGX " + String.format("%.2f", total));
+       
     }
 }
